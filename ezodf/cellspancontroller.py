@@ -45,7 +45,8 @@ class CellSpanController(object):
 
     def _has_cell_range_spanned_cells(self, pos, size):
         for cell_index in iter_cell_range(pos, size):
-            if self.is_cell_spanning(cell_index):
+            cell = self._get_cell(cell_index)
+            if cell.covered or cell.span != (1, 1):
                 return True
         return False
 
