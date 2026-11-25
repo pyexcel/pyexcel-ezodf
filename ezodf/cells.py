@@ -161,6 +161,7 @@ class Cell(GenericWrapper):
 
     def _clear_old_value(self):
         self._clear_value_attribute(self.value_type)
+        self.xmlnode.attrib.pop(CN('office:currency'), None)
         self._clear_content()
 
     def _clear_content(self):
