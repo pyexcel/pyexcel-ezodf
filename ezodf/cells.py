@@ -229,8 +229,8 @@ class Cell(GenericWrapper):
             self._set_span_attributes(rows, cols)
 
     def _del_span_attributes(self):
-        del self.xmlnode.attrib[CN('table:number-rows-spanned')]
-        del self.xmlnode.attrib[CN('table:number-columns-spanned')]
+        self.xmlnode.attrib.pop(CN('table:number-rows-spanned'), None)
+        self.xmlnode.attrib.pop(CN('table:number-columns-spanned'), None)
 
     def _set_span_attributes(self, rows, cols):
         self.xmlnode.set(CN('table:number-rows-spanned'), tostr(rows))
